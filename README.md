@@ -13,9 +13,6 @@ controller.
 
 This repository holds its builds. Install it once by hand; after that, Overdrive updates itself.
 
-> **Upgrading from the folder install?** It will stop getting updates soon. Follow
-> [MIGRATE.md](MIGRATE.md) to switch to the single-file image.
-
 ## What you need
 
 | | |
@@ -27,37 +24,19 @@ This repository holds its builds. Install it once by hand; after that, Overdrive
 
 ## Install
 
-1. **Download** `Overdrive-PPSA99058.exfat.zip` from the [latest release](https://github.com/half144/overdrive-releases/releases/latest).
-2. **Unzip** it on your computer. You get a single file, `Overdrive-PPSA99058.exfat`: the whole app
-   in one exFAT image.
-3. **Copy** that file to `/data/homebrew/` on the console (or to `homebrew/` on a USB drive plugged
-   into it), so you end up with `/data/homebrew/Overdrive-PPSA99058.exfat`. Do not change its
-   permissions: ShadowMountPlus mounts the image as it is.
-   - **FTP:** connect to the console's FTP server and upload the file into `/data/homebrew/`.
-   - **PS5Upload:** send the file with `/data/homebrew/` as the destination folder.
-   - **USB:** copy the file to `homebrew/` at the root of an exFAT drive and plug it into the console.
+1. **Download** `Overdrive-PPSA99058.zip` from the [latest release](https://github.com/half144/overdrive-releases/releases/latest).
+2. **Extract** it on your computer. You get a folder named `PPSA99058`.
+3. **Copy** the whole `PPSA99058` folder to `/data/homebrew/` on the console, so you end up with
+   `/data/homebrew/PPSA99058/eboot.bin`.
+   - **FTP:** connect to the console's FTP server and upload the folder into `/data/homebrew/`.
+   - **PS5Upload:** send the folder with `/data/homebrew/PPSA99058` as the destination.
+   - **USB:** copy the folder to `homebrew/` at the root of an exFAT drive, plug it into the console
+     and move it to `/data/homebrew/` with a file manager.
 4. **Register** it: with ShadowMountPlus running, Overdrive appears on the home screen within a few
    seconds. If it does not, run ShadowMountPlus's scan again.
 5. **Open** Overdrive from the home screen.
 
-> Keep the file name `Overdrive-PPSA99058.exfat`, and keep only one copy of Overdrive: if you had
-> the folder install, delete `/data/homebrew/PPSA99058` first so ShadowMount doesn't see two copies.
-> [MIGRATE.md](MIGRATE.md) walks through switching from the folder install.
-
-<details>
-<summary><b>Alternative: the folder install (deprecated)</b></summary>
-
-The folder install will stop getting updates soon; prefer the image above, or
-[switch to it](MIGRATE.md) if you already have the folder.
-
-1. Download `Overdrive-PPSA99058.zip` from the latest release and extract it: you get a folder named
-   `PPSA99058`.
-2. Copy the whole folder to `/data/homebrew/`, so you end up with
-   `/data/homebrew/PPSA99058/eboot.bin`. Keep the folder name: it is the title ID.
-3. Set the folder's permissions to `777`, recursively. FTP clients such as zftpd write files as
-   `0666`, which the console's loader refuses ("Cannot start the game or app").
-4. Register and open it as above.
-</details>
+> Keep the folder name `PPSA99058`. It is the title ID, and the updater looks for that folder.
 
 ## Updates
 
@@ -71,33 +50,26 @@ v0.0.88  →  v0.0.89
 [ Update now ]  [ Later ]
 ```
 
-**Update now** downloads the release, checks it against the SHA-256 GitHub publishes for it,
-and installs it. An image install gets the new image in place of the old one: Overdrive then
-closes, and ShadowMountPlus mounts the new image when you open it again from the home screen. A
-folder install gets the new files swapped into its folder and reopens on its own. Your downloads,
+**Update now** downloads the ZIP, checks it against the SHA-256 GitHub publishes for it, swaps the
+new files into the install folder and reopens Overdrive on the new version. Your downloads,
 favorites and settings stay where they are.
 
-To update by hand instead, repeat the install steps over the existing file (or folder).
+To update by hand instead, repeat the install steps over the existing folder.
 
 ## Troubleshooting
 
 <details>
 <summary><b>"Cannot start the game or app" after copying the folder</b></summary>
 
-Only the folder install has this: the console's launcher needs to read every file in the folder.
-Set the folder's permissions to `777`, recursively (most FTP clients and PS5Upload can do it), then
-open Overdrive again. The image install never needs it.
+The console's launcher needs to read every file in the folder. Set the folder's permissions to
+`777`, recursively (most FTP clients and PS5Upload can do it), then open Overdrive again.
 </details>
 
 <details>
 <summary><b>Overdrive closes after an update but does not reopen</b></summary>
 
-With the image install that is expected: open Overdrive from the home screen. With the folder
-install, reopening needs the ELF loader on port 9021; without it the update still installs, and
-Overdrive runs the new version when you open it.
-
-If Overdrive still shows the old version right after an image update, close it, wait a few seconds
-and open it again: ShadowMountPlus releases the old image a moment after the app closes.
+Reopening needs the ELF loader on port 9021. Without it the update still installs: open Overdrive
+from the home screen and it runs the new version.
 </details>
 
 <details>
@@ -112,16 +84,10 @@ connection can run out, and the next launch tries again.
 <summary><b>Overdrive does not show up on the home screen</b></summary>
 
 Check that ShadowMountPlus is running and that the path is exactly
-`/data/homebrew/Overdrive-PPSA99058.exfat` (or, for the folder install,
-`/data/homebrew/PPSA99058/eboot.bin`, not one folder deeper). If both the image and the
-`PPSA99058` folder are there, ShadowMountPlus sees the same title twice: delete the folder.
+`/data/homebrew/PPSA99058/eboot.bin`, not one folder deeper.
 </details>
 
 ## Releases
 
-Each release is tagged `vX.Y.Z` and carries two assets:
-
-- `Overdrive-PPSA99058.exfat.zip`: the app as a single exFAT image (64 KiB clusters, the app at the
-  image's root). The recommended install.
-- `Overdrive-PPSA99058.zip`: the complete `PPSA99058` app folder, with mode `777` stored. Deprecated:
-  it will be discontinued soon.
+Each release is tagged `vX.Y.Z` and carries a single asset, `Overdrive-PPSA99058.zip`: the complete
+`PPSA99058` app folder.
