@@ -132,8 +132,9 @@ DNS.
 - **Any other DNS**: set the console's DNS to `1.1.1.1` and `1.0.0.1` (or `8.8.8.8` and `8.8.4.4`)
   in **Settings > Network > Settings > Set Up Internet Connection**, then choose **Retry**.
 
-Versions up to 0.0.106 can show "Not enough free space" for this on games with "Space" in the
-name (Dead Space); it is the same connection problem.
+**Known bug, up to 0.0.106:** for games with "Space" in the name (Dead Space), a connection error is
+shown as "Not enough free space", and the download doesn't move on to the game's other sources.
+Your drive has room: fix the DNS as above and choose **Retry**. The next version fixes it.
 </details>
 
 ## Releases
