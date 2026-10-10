@@ -119,6 +119,23 @@ Check that ShadowMountPlus is running and that the path is exactly
 `PPSA99058` folder are there, ShadowMountPlus sees the same title twice: delete the folder.
 </details>
 
+<details>
+<summary><b>Every download fails with "No connection to the server" (or "Not enough free space" with plenty of room)</b></summary>
+
+The console can't resolve the download servers' names, so every download stops at 0 MB. Covers
+may still load, because Overdrive looks their addresses up on its own; downloads use the console's
+DNS.
+
+- **DNS set to `127.0.0.1`** (common with Y2JB and other jailbreak setups): that address is a DNS
+  payload running on the console, such as NanoDNS. Load it before opening Overdrive, then choose
+  **Retry**.
+- **Any other DNS**: set the console's DNS to `1.1.1.1` and `1.0.0.1` (or `8.8.8.8` and `8.8.4.4`)
+  in **Settings > Network > Settings > Set Up Internet Connection**, then choose **Retry**.
+
+Versions up to 0.0.106 can show "Not enough free space" for this on games with "Space" in the
+name (Dead Space); it is the same connection problem.
+</details>
+
 ## Releases
 
 Each release is tagged `vX.Y.Z` and carries two assets:
