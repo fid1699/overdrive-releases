@@ -22,7 +22,7 @@ This repository holds its builds. Install it once by hand; after that, Overdrive
 | --- | --- |
 | **A jailbroken PS5** | Tested on firmware 13.60 |
 | **[ShadowMountPlus](https://github.com/drakmor/ShadowMountPlus)** | Registers Overdrive and the games it downloads |
-| **An ELF loader on port 9021** | For example John Törnblom's elfldr. Overdrive uses it to install packages and to reopen itself after an update |
+| **An ELF loader on port 9021** | For example John Törnblom's elfldr. Overdrive uses it to install packages, and a folder install to reopen itself after an update |
 | **A way to copy files to the console** | FTP, [PS5Upload](https://github.com/phantomptr/ps5upload) or a USB drive |
 
 ## Install
@@ -73,7 +73,8 @@ v0.0.88  →  v0.0.89
 
 **Update now** downloads the release, checks it against the SHA-256 GitHub publishes for it,
 and installs it. An image install gets the new image in place of the old one: Overdrive then
-closes, and ShadowMountPlus mounts the new image when you open it again from the home screen. A
+closes, and ShadowMountPlus mounts the new image when you open it again from the home screen after
+a few seconds. A
 folder install gets the new files swapped into its folder and reopens on its own. Your downloads,
 favorites and settings stay where they are.
 
@@ -96,8 +97,9 @@ With the image install that is expected: open Overdrive from the home screen. Wi
 install, reopening needs the ELF loader on port 9021; without it the update still installs, and
 Overdrive runs the new version when you open it.
 
-If Overdrive still shows the old version right after an image update, close it, wait a few seconds
-and open it again: ShadowMountPlus releases the old image a moment after the app closes.
+If you reopen an image install too fast, the old version may open and offer the same update again:
+choose **Later**, close Overdrive and open it again after a few seconds. ShadowMountPlus releases
+the old image a moment after the app closes.
 </details>
 
 <details>

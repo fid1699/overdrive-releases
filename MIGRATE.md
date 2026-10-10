@@ -15,19 +15,21 @@ your computer. You get a single file, `Overdrive-PPSA99058.exfat` (about 780 MB)
 
 ## 2. Delete the old folder
 
-Delete the folder `/data/homebrew/PPSA99058` on the console, with your FTP client, PS5Upload's file
-browser or a file manager on the console.
+Delete the `PPSA99058` folder wherever you installed it: usually `/data/homebrew/PPSA99058`, but
+it may also be under a USB drive (`/mnt/usb0/homebrew/PPSA99058`, `/mnt/usb1/...`) or another
+folder ShadowMountPlus scans. Use your FTP client, PS5Upload's file browser or a file manager on the
+console.
 
 What you keep:
 
-- **Your downloads and the download queue.** Downloaded games stay where they are, and the queue
+- **Your downloads and the download list.** Downloaded games stay where they are, and the list
   lives in `/data/ps5-react/PPSA99058`, outside the app folder.
-- **Your favorites, recently viewed games and language.** They live in the app's data folder on the
-  console, not in `/data/homebrew/PPSA99058`, and the console keeps it as long as Overdrive stays in
-  its library. Deleting the folder does not remove Overdrive from the library unless you turned on
-  ShadowMountPlus's `auto_remove_missing_games` (off by default), and even then only after the
-  source has been missing for its delay (5 minutes by default): do step 3 right away. Do not delete
-  Overdrive from the console's own settings or Storage screen, which does erase that data.
+- **Your favorites, recently viewed games and language should be kept too.** They live in the app's
+  data folder on the console, which stays as long as Overdrive stays in the console's library. If
+  they reset after the switch, this is why: the console treated it as a new install. To make that
+  less likely, do step 3 right away (ShadowMountPlus's `auto_remove_missing_games`, off by default,
+  removes a title whose source has been missing for 5 minutes), and do not delete Overdrive from the
+  console's own settings or Storage screen.
 
 ## 3. Copy the image
 
