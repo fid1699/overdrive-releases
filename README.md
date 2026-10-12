@@ -13,6 +13,12 @@ controller.
 
 This repository holds its builds. Install it once by hand; after that, Overdrive updates itself.
 
+## Support Overdrive
+
+Help us host the games ourselves on our own CDN (Cloudflare) for much faster downloads.
+
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-support-ff5e5b?logo=ko-fi&logoColor=white)](https://ko-fi.com/overdrivebaby) https://ko-fi.com/overdrivebaby
+
 > **Upgrading from the folder install?** It will stop getting updates soon. Follow
 > [MIGRATE.md](MIGRATE.md) to switch to the single-file image.
 
