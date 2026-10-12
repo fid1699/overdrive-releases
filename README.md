@@ -13,6 +13,9 @@ controller.
 
 This repository holds its builds. Install it once by hand; after that, Overdrive updates itself.
 
+> **Support Overdrive:** You can support the project by buying the OVERDRIVE token on Solana:
+> `HT1hPomeMjNM81XebDHLgiBr3upQCHSgWLmeoyU7pump`. **All fees go to the developer.**
+
 > **Upgrading from the folder install?** It will stop getting updates soon. Follow
 > [MIGRATE.md](MIGRATE.md) to switch to the single-file image.
 
